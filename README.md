@@ -8,7 +8,7 @@
 
 •Visual Studio 2017
 
-•동기 IO
+•IOCP
 
 •DB 연동은 구현 되지 않음.
 
