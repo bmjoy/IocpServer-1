@@ -1,5 +1,4 @@
 #pragma once
-static char pass[44] = "PASS oauth:ccuwxr3mx5ks5q9pzv04x7k33rue9r\r\n";
 //공용 키값//
 #define DIR_FORWARD					0x01
 #define DIR_BACKWARD				0x02
