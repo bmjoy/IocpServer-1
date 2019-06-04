@@ -91,7 +91,7 @@ void TwitchIRC::stripMessage(std::string incoming, std::string &username, std::s
 	}
 }
 void TwitchIRC::InitSend() {
-	send(tw_sock, "PASS oauth:ccuwxr3mx5ks5q9pzv04x7k33rue9r\r\n", strlen("PASS oauth:ccuwxr3mx5ks5q9pzv04x7k33rue9r\r") + 1, 0); //ÅäÅ«?
+	send(tw_sock, pass, strlen(pass), 0);
 	send(tw_sock, "NICK blqblq\r\n", strlen("NICK blqblq\r") + 1, 0);
 	send(tw_sock, "USER blqblq\r\n", strlen("USER blqblq\r") + 1, 0);
 
