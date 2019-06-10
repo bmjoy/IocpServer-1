@@ -2,7 +2,7 @@
 #include "Protocol.h"
 #pragma execution_character_Set("utf-8")
 
-#include <winsock.h>
+#include <winsock2.h>
 #include <string>
 #include <fstream>
 #include "TwitchIRC.h"
@@ -13,7 +13,7 @@ void TwitchIRC::Init()
 }
 void TwitchIRC::Proc() {
 	SetConsoleOutputCP(65001); //콘솔 인코딩
-
+	
 	char line[124];
 	std::fstream f("config.txt", std::ios::in);
 	//hostName, port, pass, nick, channel
@@ -73,11 +73,15 @@ void TwitchIRC::Run()
 		ZeroMemory(&recv_buffer, sizeof(recv_buffer));
 		
 		if (pkt.size() > 1 && pkt[pkt.size() - 2] == '\r' && pkt[pkt.size() - 1] == '\n') {
-
-			std::string name, message;
-			stripMessage(pkt, name, message);
-			std::cout << "Chat: " << name << ": " << message << std::endl;
-			pkt.resize(0);
+			if (pkt.find("PRIVMSG") !=  std::string::npos) {
+				std::string name, message;
+				stripMessage(pkt, name, message);
+				std::cout << "Chat: " << name << ": " << message << std::endl;
+				pkt.resize(0);
+			}
+			if (pkt.find("PING") != std::string::npos) {
+				send(tw_sock, "PONG :tmi.twitch.tv\r\n", strlen("PONG :tmi.twitch.tv\r") + 1, 0);
+			}
 		}
 	}
 
