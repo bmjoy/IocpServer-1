@@ -58,6 +58,9 @@
     <Filter Include="소스 파일\ThreadManager\TwitchIRC\Chat">
       <UniqueIdentifier>{8052481f-91da-419c-bcf0-99f507c5e1a5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\ThreadManager\MyThread\DBThread">
+      <UniqueIdentifier>{862f3b96-4055-417b-8142-e407d54d7f72}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -114,6 +117,9 @@
     <ClInclude Include="TwitchIRC.h">
       <Filter>소스 파일\ThreadManager\TwitchIRC</Filter>
     </ClInclude>
+    <ClInclude Include="DBThread.h">
+      <Filter>소스 파일\ThreadManager\MyThread\DBThread</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -160,6 +166,9 @@
     </ClCompile>
     <ClCompile Include="TwitchIRC.cpp">
       <Filter>소스 파일\ThreadManager\TwitchIRC</Filter>
+    </ClCompile>
+    <ClCompile Include="DBThread.cpp">
+      <Filter>소스 파일\ThreadManager\MyThread\DBThread</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

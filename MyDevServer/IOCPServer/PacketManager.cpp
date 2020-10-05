@@ -23,8 +23,8 @@ void PacketManager::SendPacket(int id, void *packet)
 	int ret = WSASend(objectManager->GetPlayer(id)->m_socket, &ex->m_wsaBuf, 1, NULL, 0, &ex->m_wsaOver, 0);
 	if (0 != ret) {
 		int err_no = WSAGetLastError();
-		if (WSA_IO_PENDING != err_no);
-			//printf("오류");
+		if (WSA_IO_PENDING != err_no)
+			printf("send err");
 	}
 };
 void PacketManager::LoginPacket(int id) 
@@ -172,7 +172,7 @@ void PacketManager::LobbyPacket(int id)
 
 	
 	//방 초기화
-	ROOMMANAGER->room[roomNum]->m_full == false;
+	ROOMMANAGER->room[roomNum]->m_full = false;
 	for (int i = 0; i < SOLO_NUM; ++i) {
 		ROOMMANAGER->room[roomNum]->m_ids[i] = -1;
 	}
